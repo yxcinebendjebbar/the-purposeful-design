@@ -117,8 +117,8 @@ Purpose          ← Define this first
 ## Roadmap
 
 - **Week 1** ✅ — Philosophical foundation and documentation
-- **Week 2** — Design token system and Tailwind preset
-- **Week 3** — Core primitive components (Button, Input, Label, Select)
+- **Week 2** ✅ — Design token system and Tailwind preset
+- **Week 3** ✅ — Core primitive components (Button, Input, Label, Select)
 - **Week 4** — Layout components (Card, Dialog, Sheet, Popover)
 - **Week 5** — Data components (Table, List, Badge, Tag)
 - **Week 6** — Navigation components (Nav, Breadcrumb, Tabs, Sidebar)
