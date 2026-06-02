@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   THE PURPOSEFUL DESIGN — Global Styles
+   Typography-first. Editorial. Intentional.
+   ───────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+
+:root {
+  /* ── Type tokens ── */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'DM Serif Display', Georgia, serif;
+}
+
+/* ── Base Reset & Defaults ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+  font-family: var(--font-sans);
+  line-height: 1.625;
+  min-height: 100vh;
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: #0c0a09;
+  color: #fafaf9;
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid #0c0a09;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+/* ── Typography Utilities ── */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* ── Layout Utilities ── */
+.page-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 3rem);
+}
+
+.reading-width {
+  max-width: 72ch;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid hsl(var(--color-border));
+  margin: 0;
+}
+
+/* ── Label utility ── */
+.label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--color-foreground-muted));
+}
+
+/* ── Animated underline link ── */
+.link-underline {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 250ms cubic-bezier(0.25, 0, 0, 1);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* ── Page transition ── */
+.page-enter {
+  animation: fadeUp 400ms cubic-bezier(0.25, 0, 0, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Prose overrides for MDX content ── */
+.prose {
+  --tw-prose-body: hsl(var(--color-foreground));
+  --tw-prose-headings: hsl(var(--color-foreground));
+  --tw-prose-links: hsl(var(--color-foreground));
+  --tw-prose-code: hsl(var(--color-foreground));
+  --tw-prose-pre-bg: hsl(var(--color-surface-subtle));
+  --tw-prose-hr: hsl(var(--color-border));
+  --tw-prose-quotes: hsl(var(--color-foreground-secondary));
+  --tw-prose-quote-borders: hsl(var(--color-border));
+}
+
+.prose h1, .prose h2, .prose h3 {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.prose blockquote {
+  font-style: normal;
+  font-size: 1.125rem;
+  border-left-color: #0c0a09;
+  border-left-width: 2px;
+  padding-left: 1.5rem;
+  color: var(--color-muted-foreground);
+}
+
+.prose code {
+  background: #f5f5f4;
+  padding: 0.125rem 0.375rem;
+  border-radius: 3px;
+  font-size: 0.875em;
+  font-weight: 400;
+  border: 1px solid #e7e5e4;
+}
+
+.prose pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+/* ── Navigation active state ── */
+[data-active='true'] {
+  color: hsl(var(--color-foreground));
+  font-weight: 500;
+}
